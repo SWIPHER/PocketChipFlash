@@ -1,0 +1,19 @@
+deb http://chip.jfpossibilities.com/chip/debian/repo jessie main
+deb http://chip.jfpossibilities.com/chip/debian/pocketchip jessie main
+deb http://ftp.us.debian.org/debian/ jessie main contrib non-free
+deb-src http://ftp.us.debian.org/debian/ jessie main contrib non-free
+
+deb http://security.debian.org/ jessie/updates main contrib non-free
+deb-src http://security.debian.org/ jessie/updates main contrib non-free
+
+deb http://http.debian.net/debian stretch-backports main contrib non-free
+deb-src http://http.debian.net/debian stretch-backports main contrib non-free
+
+deb http://chip.jfpossibilities.com/chip/debian/repo jessie main
+deb http://chip.jfpossibilities.com/chip/debian/pocketchip jessie main
+
+deb http://archive.raspbian.org/raspbian jessie main contrib non-free
+
+#deb http://opensource.nextthing.co/chip/debian/repo jessie main
+#deb http://opensource.nextthing.co/chip/debian/pocketchip jessie main
+#deb http://opensource.nextthing.co/chip/debian/testing-repo testing main

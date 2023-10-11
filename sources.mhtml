@@ -1,0 +1,214 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: http://chip.jfpossibilities.com/chip/debian/
+Subject: JF Possibilities' mirror of CHIP ".deb" repositories
+Date: Wed, 11 Oct 2023 17:45:11 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--6bUJrVmOpprJqqz1olSGQh5KTpWRY6uFJiCx3y25Zi----"
+
+
+------MultipartBoundary--6bUJrVmOpprJqqz1olSGQh5KTpWRY6uFJiCx3y25Zi----
+Content-Type: text/html
+Content-ID: <frame-146CA3DC20598EB2501E77A6A314C35B@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://chip.jfpossibilities.com/chip/debian/
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3Dwindows-1252">
+  <title>JF Possibilities' mirror of CHIP ".deb" repositories</title>
+  <meta name=3D"description" content=3D"">
+</head><body>
+  <h1><a href=3D"https://www.jfpossibilities.com/">JF Possibilities'</a> mi=
+rror=20
+  of CHIP ".deb" repositories.</h1>
+ =20
+  <p>This is a mirror NTC's Debian package archives, or at least the ones
+  that I was aware of. I have mirrors for (you can browse them):</p>
+    =20
+  <menu>
+    <li><a href=3D"http://chip.jfpossibilities.com/chip/debian/repo">CHIP</=
+a></li>
+    <li><a href=3D"http://chip.jfpossibilities.com/chip/debian/pocketchip">=
+PocketCHIP specific additions</a></li>
+  </menu>
+  =20
+   <p><b>FYI:</b> The PocketCHIP uses both the CHIP and PocketCHIP
+   repositories listed above. The PocketCHIP specific software is in its ow=
+n
+   repository.</p>
+  =20
+   <p>To use these repositories all you need to do is update the applicable
+   lines in your "/etc/apt/sources.list" files with my domain name.
+   Example:</p>
+  =20
+   <h3>Original:</h3>
+   <pre style=3D"border: 1px solid black; margin-left: 2em; padding: 2px;">=
+deb http://<font color=3D"red">opensource.nextthing.co</font>/chip/debian/r=
+epo jessie main
+deb http://<font color=3D"red">opensource.nextthing.co</font>/chip/debian/p=
+ocketchip jessie main
+</pre>
+  =20
+   <h3>Change it to:</h3>
+<pre style=3D"border: 1px solid black; margin-left: 2em; padding: 2px;">deb=
+ http://<font color=3D"green">chip.jfpossibilities.com</font>/chip/debian/r=
+epo jessie main
+deb http://<font color=3D"green">chip.jfpossibilities.com</font>/chip/debia=
+n/pocketchip jessie main
+</pre>
+  =20
+   <p>I made sure to use the same paths for file locations to make it easie=
+r
+   on lesser experienced users. <b>Remember</b> the "pocketchip" line above
+   will only be on PocketCHIP installs.</p>
+  =20
+   <p>You will also want to update the applicable
+   lines in your "/etc/apt/preferences" files with my domain name.
+   Example:</p>
+  =20
+   <h3>Original:</h3>
+   <pre style=3D"border: 1px solid black; margin-left: 2em; padding: 2px;">=
+Package: *
+Pin: origin <font color=3D"red">opensource.nextthing.co</font>
+Pin-Priority: 1050</pre>
+  =20
+   <h3>Change it to:</h3>
+<pre style=3D"border: 1px solid black; margin-left: 2em; padding: 2px;">Pac=
+kage: *
+Pin: origin <font color=3D"green">chip.jfpossibilities.com</font>
+Pin-Priority: 1050</pre>
+  =20
+   <p>There were two copies in my file. You just need one corrected copy.
+   I left one copy of the original NTC section and altered the first with
+   my repo domain name. If an "apt-get upgrade" breaks Pico-8 this change
+   will fix it, after another "upgrade".</p>
+  =20
+   <p>Unfortunately NTC did not allow browsing of their repository servers
+   so it was up to me to <i>guess</i> what was available for mirroring. I
+   used Debian's <a href=3D"https://packages.debian.org/stretch/apt-mirror"=
+>"apt-mirror"</a> to
+   mirror the repositories listed on my devices. This clones a repository b=
+y
+   reading the package and release files pointed to by apt source=20
+   definitions. This means that I can be missing stuff that
+   might otherwise have been available on their server (old packages, repos
+   not used by my devices, ...). It also means that the signing remained
+   intact. So you can be cryptographically ensured that neither I nor anyon=
+e
+   else has tampered with this mirror. It also means you won't need to
+   install a new key on your CHIP. :-)</p>
+  =20
+   <p><b>NOTE:</b> I refreshed my archive shortly before the NTC
+   repository fell off the iNet. Since it had been a few months
+   since NTC had been operating I'm reasonbly sure these are the
+   "<i>Latest and Greatest</i>".</p>
+  =20
+   <hr>
+   <p><br></p>
+   <h2>Trouble shooting</h2>
+  =20
+   <h3><u>Repository key propblems</u></h3>
+  =20
+   <p>I've had at least one person tell me that "apt-get" is telling them i=
+t
+   doesn't recognize the key that my copies of the NTC repository are signe=
+d
+   with (key ID 0483025E2847CC20). Since these are exact mirrors of the NTC
+   stuff they are signed with the NTC private key, which I don't have. This
+   means the signatures guarantee that the packages on here have not been
+   tampered with by myself or anyone else. So its important to fix the key =
+if
+   its broken.</p>
+  =20
+   <p>If you don't have network access (WiFi, USB, ...) and you haven't <a =
+href=3D"https://www.jfpossibilities.com/showcase/pocket-watch-pocketchip/">=
+added an RTC</a> your time and date could be way off. Please check / set
+   your time (see "man date") and try "apt-get" again. If that doesn't fix
+   it then move on to the next paragraph.</p>
+  =20
+   <p>For any who still have problems with an apt-get warning you can
+   download the NTC public key from here: <a href=3D"http://chip.jfpossibil=
+ities.com/chip/debian/NTC.pub">NTC.pub</a>. Copy
+   it to your CHIP and you can import it using the "apt-key" command. Like=
+=20
+   so:</p>
+  =20
+<pre style=3D"border: 1px solid black; margin-left: 2em; padding: 2px;">sud=
+o apt-key add - &lt; NTC.pub
+</pre>
+
+    <p>Run that command from the directory where you put the file. Or you'l=
+l
+    need to change the file name in the command.</p>
+
+   <h3><u>Debian archive problems</u></h3>
+  =20
+   <p>Debian has <i>archived</i> v8 (Jessie). And as of Feb 2023 they have
+   also <i>archived</i> the "security updates". CHIP's OS is based on Debia=
+n
+   8. When they "archive" a release they pull it from the servers it was
+   originally on and move it to <a href=3D"http://archive.debian.org/">arch=
+ive.debian.org</a>. So far they
+   have been good about maintaining the archive. You can find some really
+   old stuff there. So I don't fear it will go away any time soon.</p>
+  =20
+   <p>If your getting errors about missing "...Release..." files it would b=
+e
+   caused by the <i>archiving</i> I mentioned. You'll want to adjust your=
+=20
+   "/etc/apt/sources.list" to something like:</p>
+
+<pre style=3D"border: 1px solid black; margin-left: 2em; padding: 2px;">deb=
+ http://archive.debian.org/debian/ jessie main contrib non-free
+deb-src http://archive.debian.org/debian/ jessie main contrib non-free
+deb http://archive.debian.org/debian-security jessie/updates main contrib n=
+on-free
+deb-src http://archive.debian.org/debian-security jessie/updates main contr=
+ib non-free
+deb http://archive.debian.org/debian jessie-backports main contrib non-free
+deb-src http://archive.debian.org/debian jessie-backports main contrib non-=
+free
+deb http://chip.jfpossibilities.com/chip/debian/repo jessie main
+deb http://chip.jfpossibilities.com/chip/debian/pocketchip jessie main
+</pre>
+
+   <p>Related to this, and the simpler scenario, some of the repos in use
+   have an expired "InRelease" file. You'll get a messag like:</p>
+  =20
+   <p style=3D"border: 1px solid black; margin-left: 2em; padding: 2px;">
+   Release file for .../InRelease is expired ...
+   </p>
+  =20
+   <p>This can be fixed by adding this to the end of your
+   "/etc/apt/apt.conf" file (if it doesn't exist create it):</p>
+
+<pre style=3D"border: 1px solid black; margin-left: 2em; padding: 2px;">Acq=
+uire::Check-Valid-Until "0";
+</pre>
+  =20
+   <p>Another problem that has arisen recently is that the signing keys for
+   Debian's repository have expired. This technically can't be
+   <i>fixed</i>... well at least not without a time machine. This doesn't
+   seem to cause a problem other than the annoying message that the
+   repositories can't be authenticated, followed by the typical "<i>are you
+   sure</i>" prompt.</p>
+  =20
+   <p>If you don't want to be bothered to answer "y" to those prompts you
+   can add this line to your "/etc/apt/apt.conf" file:</p>
+=20
+<pre style=3D"border: 1px solid black; margin-left: 2em; padding: 2px;">APT=
+::Get::AllowUnauthenticated "true";
+</pre>
+
+   <p>Be aware that this basically turns off all repository authentication.
+   But this is the environment we live in. :-(</p>
+   <p><br></p>
+   <hr>
+   <p>If you find this resource of value please drop me a line. My contact
+   info is available <a href=3D"https://www.jfpossibilities.com/company/con=
+tact_us/">here</a>.</p>
+  =20
+
+</body></html>
+------MultipartBoundary--6bUJrVmOpprJqqz1olSGQh5KTpWRY6uFJiCx3y25Zi------
